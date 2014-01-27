@@ -86,12 +86,12 @@ class ReleaseNotesController < ApplicationController
     @formats = ReleaseNotesFormat.select(:name).all
 
     @content = ReleaseNotesGenerator.new(@version, @format).generate
-
+    html = @content.include? "<!DOCTYPE html>"
     if params[:raw]
-      render :text => @content, :content_type => 'text/html'
+      render :text => @content, :content_type =>  (html ? 'text/html' : 'text:plain')
     elsif params[:download]
-      send_data @content, :content_type => 'text/html',
-        :filename => "release-notes-#{@project.name}-version-#{@version.name}.html"
+      send_data @content, :content_type =>  (html ? 'text/html' : "text:plain"),
+        :filename => "release-notes-#{@project.name}-version-#{@version.name}" + (html ? ".html" : ".txt")
     end
   end
 
