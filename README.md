@@ -30,7 +30,7 @@ Pull requests welcome!
 
 Clone it.
 
-    git clone git://github.com/hdgarrood/redmine_release_notes \
+    git clone git@github.com:pbininda/redmine_release_notes.git \
         /path/to/redmine/plugins/redmine_release_notes
 
 Do the migrations.
@@ -77,7 +77,7 @@ Plugins (if you're an admin).
 
 Bug reports, feature requests, and pull requests are all welcome.
 
-* [source](https://github.com/hdgarrood/redmine_release_notes)
+* [source](https://github.com/pbininda/redmine_release_notes)
 * [issue tracker](https://github.com/hdgarrood/redmine_release_notes/issues)
 
 ## licence
