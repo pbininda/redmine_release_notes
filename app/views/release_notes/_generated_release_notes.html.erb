@@ -1,4 +1,8 @@
-<div style="width: 80%; margin: 10px auto 10px auto; border: thin solid #222266;">
-<pre style="padding:3em; word-wrap:break-word;" id=relnotes><%= @content %></pre>
+<!--<div style="width: 80%; margin: 10px auto 10px auto; border: thin solid #222266;">
+<pre style="padding:3em; word-wrap:break-word;" id=relnotes>< %= @content % ></pre>
 </div>
-</div>
+</div>-->
+
+<iframe style="width: 80%; height: 800px; margin: 10px auto 10px auto; border: thin solid #222266;" 
+  src="generate_release_notes?raw=true&release_notes_format=<%=params[:release_notes_format] %>">
+</iframe>

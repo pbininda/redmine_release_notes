@@ -27,11 +27,12 @@ ActionDispatch::Callbacks.to_prepare do
 end
 
 Redmine::Plugin.register :redmine_release_notes do
-  name 'Redmine release notes plugin'
-  author 'Harry Garrood'
+  name 'Redmine release notes plugin (SEKAS)'
+  author 'Paul Bininda'
   description 'A plugin for managing release notes.'
   version '1.3.1'
-  author_url 'https://github.com/hdgarrood'
+  author_url 'https://github.com/pbininda'
+  url 'https://github.com/pbininda/redmine_release_notes'
   requires_redmine :version_or_higher => '2.1.0'
 
   # the partial won't be used, but can't be blank, because Redmine needs to

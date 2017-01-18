@@ -22,7 +22,7 @@ module RedmineReleaseNotes
 
         # NB: the release_notes_* scopes will not return issues which don't
         # have a value for the issue custom field.
-        
+
         # all the issues which need release notes (including ones which have
         # them already)
         def self.release_notes_required
@@ -57,25 +57,25 @@ module RedmineReleaseNotes
         def self.release_notes_invalid
           todo_value = Setting.plugin_redmine_release_notes[:field_value_todo]
           done_value = Setting.plugin_redmine_release_notes[:field_value_done]
-          none_value = Setting.plugin_redmine_release_notes[:field_value_not_required] 
+          none_value = Setting.plugin_redmine_release_notes[:field_value_not_required]
 
           joins_release_notes.
             where('custom_values.value not in (?)', [done_value, todo_value,none_value])
         end
 
         def self.release_notes_no_cf_defined
-          includes(:custom_values).where(no_cf_defined_condition) 
+          includes(:custom_values).where(no_cf_defined_condition)
         end
 
         # issues where CF is set to 'none' OR for which custom field is not defined
         def self.release_notes_not_required
           cf_id = Setting.plugin_redmine_release_notes[:issue_custom_field_id].to_i
           none_value = Setting.plugin_redmine_release_notes[:field_value_not_required]
- 
+
           conditions = "( custom_values.custom_field_id = #{cf_id}"
           conditions << " AND custom_values.value = '#{connection.quote_string(none_value)}' )"
 
-          joins_release_notes.where( conditions + " OR " + no_cf_defined_condition ) 
+          joins_release_notes.where( conditions + " OR " + no_cf_defined_condition )
         end
 
         # issues which don't have a custom value for release notes
@@ -142,9 +142,9 @@ module RedmineReleaseNotes
           conditions_b << " AND custom_values.custom_field_id = #{cf_id}"
           conditions_b << " AND custom_values.customized_id = issues.id"
           conditions_b << ") "
-       	
+
 	  conditions_b
-	end 
+	end
       end
     end
   end
